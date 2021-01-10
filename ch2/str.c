@@ -41,6 +41,7 @@ void print_str(str s) {
 }
 
 str read_str() {
+  //getchar();
   int n = 1024;
   char *p = (char*)malloc(n);
   char *t;

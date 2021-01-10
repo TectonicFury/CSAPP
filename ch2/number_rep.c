@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 str hex_to_bin(str hex_s) {
   int hex_len = hex_s.len;
@@ -97,7 +98,7 @@ str bin_to_hex(str bin_s) {
     bin_p[i] = bin_s.pstr[i - x];
   }
 
-  printf("%s\n", bin_p);
+  //("%s\n", bin_p);
   char *t = (char*)malloc(4 + 1);
   t[4] = '\0';
 
@@ -144,4 +145,43 @@ str bin_to_hex(str bin_s) {
   free(t);
   free(bin_p);
   return s;
+}
+long long bin_to_dec(str bin_s) {
+  int l = bin_s.len;
+  long long d = 0;
+  for (; l >= 1; l--) {
+    d += (bin_s.pstr[bin_s.len - l] - 48) * pow(2, l - 1);
+  }
+  return d;
+}
+long long hex_to_dec(str hex_s) {
+  str s = hex_to_bin(hex_s);
+  return bin_to_dec(s);
+}
+
+str dec_to_bin(long long x) {
+  long long q;
+  int r;
+  char st[1024];
+  st[0] = '\0';
+  int i = 0;
+  q = 4000; //arbitrary
+  while (x != 0) {
+    st[i++] = x%2 + '0';
+    x = x/2;
+  }
+  st[i] = '\0';
+  char *p = (char*)malloc(i + 1);
+  for (size_t j = 0; j < i; j++) {
+    p[j] = st[i - j - 1];
+  }
+  p[i] = '\0';
+  str bin_s = init_str(p, i);
+  free(p);
+  return bin_s;
+}
+
+str dec_to_hex(long long x) {
+  str bin_s = dec_to_bin(x);
+  return bin_to_hex(bin_s);
 }
