@@ -15,5 +15,7 @@ int main() {
   printf("%u\n", y);
   show_unsigned(x);
   show_unsigned(y);
+  unsigned int c = replace_byte(0x12345678, 0, 0xAB);
+  show_unsigned(c);
   return 0;
 }
