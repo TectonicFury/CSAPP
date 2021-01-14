@@ -159,7 +159,8 @@ long long hex_to_dec(str hex_s) {
   return bin_to_dec(s);
 }
 
-str dec_to_bin(long long x) {
+str dec_to_bin(unsigned long long x) {
+  printf("%lld\n", x);
   long long q;
   int r;
   char st[1024];
@@ -168,6 +169,7 @@ str dec_to_bin(long long x) {
   q = 4000; //arbitrary
   while (x != 0) {
     st[i++] = x%2 + '0';
+    //printf("%lld\n", x%2);
     x = x/2;
   }
   st[i] = '\0';
