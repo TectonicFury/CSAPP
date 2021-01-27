@@ -1,5 +1,13 @@
 #include "show_bytes.h"
 
+int is_little_endian() {
+  short x = 0x0100; //256
+  char *p = (char*) &x;
+  if (p[0] == 0) {
+    return 1;
+  }
+  return 0;
+}
 void show_bytes(byte_pointer start, size_t len) {
   int i;
   for (i=0;i<len;i++)

@@ -2,6 +2,7 @@
 #define __SHOW__BYTES__H__
 #include <stdio.h>
 typedef unsigned char *byte_pointer;
+int is_little_endian(); 
 void show_bytes(byte_pointer start, size_t len);
 void show_int(int x);
 void show_unsigned(unsigned x);
