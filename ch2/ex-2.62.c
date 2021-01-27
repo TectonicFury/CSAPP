@@ -18,7 +18,6 @@ int int_shifts_are_arithmetic() {
 }
 
 int main(int argc, char const *argv[]) {
-
   printf("%d\n", int_shifts_are_arithmetic());
   return 0;
 }
