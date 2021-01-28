@@ -18,6 +18,10 @@ int int_shifts_are_arithmetic() {
 }
 
 int main(int argc, char const *argv[]) {
-  printf("%d\n", int_shifts_are_arithmetic());
+  if (int_shifts_are_arithmetic()) {
+    printf("Shifts are arithmetic\n");
+  } else {
+    printf("Shifts are not arithmetic\n");
+  }
   return 0;
 }
