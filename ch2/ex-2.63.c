@@ -9,8 +9,7 @@ unsigned srl(unsigned x, int k) {
   for ( ; l >= 0; l--) {
     y += 1 << l;
   }
-  xsra = xsra & y;
-  return xsra;
+  return  xsra & y;
 }
 
 unsigned sra(int x, int k) {
