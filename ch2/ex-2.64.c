@@ -3,7 +3,6 @@
 int any_one_odd(unsigned x) {
   unsigned y = 1;
   int l = 2;
-
   while (l < 32) {
     y += (1 << l);
     l += 2;
